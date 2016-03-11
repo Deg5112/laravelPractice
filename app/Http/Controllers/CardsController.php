@@ -12,8 +12,6 @@ class CardsController extends Controller
 
         $cards =  Card::all();
         $users = User::all();
-
-
 //returns the file when the about method is called on the controller
         return view('pages.cards')
             ->with([
@@ -21,12 +19,13 @@ class CardsController extends Controller
                 'users'=>$users
             ]);
     }
+
     //$card variable is passed from the get route to this method you can call it asdf
     public function showCard(Card $curCard){
 //        Card refers to the model, which pulls cards from cards table, Card $card will pull that specific card and is set to that object
 //     you can pass that specific $card to the view
         return view('pages.card')
-            ->with('card', $curCard);
+            ->with('card', $curCard); //$curCard is an instance of the card class and is extended all methods of the class
     }
 
 }

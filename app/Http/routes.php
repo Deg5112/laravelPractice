@@ -1,5 +1,6 @@
 <?php
-
+//if you click on a link it's a get request route
+//if you submit a form with method post, the route will listen for the post request to that url
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -32,6 +33,8 @@ Route::get('cards', [
 ]);
         //wildcard variable here has to match with var name in controller method
 Route::get('cards/{curCard}', 'CardsController@showCard');
+
+Route::resource('cards/{curCard}/notes', NotesController::class);
 
 
 
